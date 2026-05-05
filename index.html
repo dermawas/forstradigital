@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FS & Partners — Execution. Strategy. Growth.</title>
+  <meta name="description" content="Boutique consulting firm for Indonesian businesses. Senior practitioners in project management, digital strategy, and technology consulting." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0f0e0c;
+      --paper: #f5f2ec;
+      --accent: #c8410a;
+      --accent-light: #e8d5cc;
+      --muted: #6b6560;
+      --line: #d9d4cc;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      background: rgba(245, 242, 236, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      transition: padding 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.6rem 1.4rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 4rem;
+      border-right: 1px solid var(--line);
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 38ch;
+      line-height: 1.75;
+      margin-bottom: 3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.9rem 2rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--ink); transform: translateY(-2px); }
+
+    .btn-secondary {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .btn-secondary:hover { color: var(--ink); }
+    .btn-secondary::after { content: '→'; }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 6rem 4rem;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, #2a1a14 0%, var(--ink) 60%);
+    }
+
+    .hero-tagline {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tagline-word {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 700;
+      color: rgba(245,242,236,0.12);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      transition: color 0.3s;
+      cursor: default;
+    }
+
+    .hero-tagline-word:hover { color: var(--paper); }
+    .hero-tagline-word.active { color: var(--paper); }
+    .hero-tagline-word span { color: var(--accent); }
+
+    .hero-location {
+      position: relative;
+      z-index: 2;
+      margin-top: 3rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,242,236,0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .hero-location::before {
+      content: '◎';
+      color: var(--accent);
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      padding: 1rem 0;
+      background: var(--paper);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 4rem;
+      animation: marquee 22s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-item {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .marquee-item::after {
+      content: '·';
+      color: var(--accent);
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 7rem 4rem; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 1.5rem;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 20ch;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .about-right {
+      padding-top: 4rem;
+    }
+
+    .about-body {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 50ch;
+    }
+
+    .about-body p + p { margin-top: 1.2rem; }
+
+    .about-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 4rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .about-stat {
+      padding: 2rem 0 2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .about-stat:nth-child(odd) { border-right: 1px solid var(--line); padding-right: 2rem; }
+    .about-stat:nth-child(even) { padding-left: 2rem; }
+
+    .about-stat-num {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .about-stat-num span { color: var(--accent); }
+
+    .about-stat-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .services .section-label { color: var(--accent); }
+    .services .section-label::before { background: var(--accent); }
+    .services .section-title { color: var(--paper); }
+
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+      align-items: end;
+    }
+
+    .services-intro {
+      color: rgba(245,242,236,0.55);
+      font-size: 1rem;
+      line-height: 1.8;
+      padding-top: 3rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid rgba(245,242,236,0.12);
+    }
+
+    .service-card {
+      padding: 3rem;
+      border-bottom: 1px solid rgba(245,242,236,0.12);
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:nth-child(odd) { border-right: 1px solid rgba(245,242,236,0.12); }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--accent);
+      transition: width 0.4s ease;
+    }
+
+    .service-card:hover::before { width: 100%; }
+    .service-card:hover { background: rgba(200,65,10,0.05); }
+
+    .service-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--paper);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .service-desc {
+      color: rgba(245,242,236,0.5);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .service-list li {
+      font-size: 0.85rem;
+      color: rgba(245,242,236,0.45);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.5;
+    }
+
+    .service-list li::before {
+      content: '—';
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.1em;
+    }
+
+    .service-exp {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(245,242,236,0.1);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: rgba(245,242,236,0.25);
+      text-transform: uppercase;
+    }
+
+    /* ── WHY ── */
+    .why { border-top: 1px solid var(--line); }
+
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 6rem;
+    }
+
+    .why-sticky {
+      position: sticky;
+      top: 120px;
+      align-self: start;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .why-item {
+      padding: 2.5rem;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      transition: background 0.25s;
+    }
+
+    .why-item:hover { background: rgba(200,65,10,0.04); }
+
+    .why-icon {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .why-item-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      color: var(--ink);
+    }
+
+    .why-item-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── CLIENTS ── */
+    .clients {
+      background: var(--accent);
+      color: #fff;
+      padding: 5rem 4rem;
+    }
+
+    .clients-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .clients-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .clients-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .client-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 1.8rem 2rem;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s;
+    }
+
+    .client-card:hover { background: rgba(255,255,255,0.18); }
+
+    .client-card-tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.6rem;
+    }
+
+    .client-card-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .client-card-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 60vh;
+    }
+
+    .cta-left {
+      padding: 6rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cta-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-title em { font-style: italic; color: var(--accent); }
+
+    .cta-body {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 42ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-right {
+      background: var(--ink);
+      padding: 6rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .cta-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(245,242,236,0.1);
+    }
+
+    .cta-detail:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .cta-detail-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: rgba(200,65,10,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    .cta-detail-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,242,236,0.35);
+      margin-bottom: 0.3rem;
+    }
+
+    .cta-detail-value {
+      font-size: 0.95rem;
+      color: var(--paper);
+    }
+
+    .cta-detail-value a {
+      color: var(--paper);
+      text-decoration: none;
+    }
+
+    .cta-detail-value a:hover { color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-weight: 900;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .footer-tagline {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── MOBILE NAV TOGGLE ── */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--ink);
+      transition: all 0.3s;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 5rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--line); }
+      .hero-right { padding: 3rem 1.5rem 4rem; min-height: 40vh; }
+
+      section { padding: 4rem 1.5rem; }
+
+      .about { grid-template-columns: 1fr; gap: 2rem; }
+      .services-header { grid-template-columns: 1fr; gap: 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card:nth-child(odd) { border-right: none; }
+
+      .why-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .why-sticky { position: static; }
+      .why-grid { grid-template-columns: 1fr; }
+
+      .clients-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .cta { grid-template-columns: 1fr; }
+      .cta-left, .cta-right { padding: 4rem 1.5rem; }
+
+      footer { flex-direction: column; gap: 0.8rem; text-align: center; padding: 2rem 1.5rem; }
+
+      .about-stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">FS <span>&</span> Partners</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#clients">Clients</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Book a Call</a>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="padding: 0;">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Jakarta, Indonesia · Est. 2025</div>
+      <h1 class="hero-headline">
+        Senior<br/>practitioners.<br/><em>Real</em> results.
+      </h1>
+      <p class="hero-sub">
+        A boutique consulting firm built to help Indonesian businesses move faster and smarter — with the operational discipline to deliver, and the strategic clarity to define what should be built.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Book a Discovery Call</a>
+        <a href="#services" class="btn-secondary">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-right-bg"></div>
+      <div class="hero-tagline">
+        <span class="hero-tagline-word active">Execution<span>.</span></span>
+        <span class="hero-tagline-word">Strategy<span>.</span></span>
+        <span class="hero-tagline-word">Growth<span>.</span></span>
+      </div>
+      <div class="hero-location">Jakarta, Indonesia</div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">Project Management</span>
+      <span class="marquee-item">Digital Strategy</span>
+      <span class="marquee-item">BSFI & Fintech</span>
+      <span class="marquee-item">PMO Setup</span>
+      <span class="marquee-item">Agile Delivery</span>
+      <span class="marquee-item">Product Consulting</span>
+      <span class="marquee-item">AI Assessment</span>
+      <span class="marquee-item">Digital Transformation</span>
+      <span class="marquee-item">Core Banking</span>
+      <span class="marquee-item">NGO Digital Services</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item">Project Management</span>
+      <span class="marquee-item">Digital Strategy</span>
+      <span class="marquee-item">BSFI & Fintech</span>
+      <span class="marquee-item">PMO Setup</span>
+      <span class="marquee-item">Agile Delivery</span>
+      <span class="marquee-item">Product Consulting</span>
+      <span class="marquee-item">AI Assessment</span>
+      <span class="marquee-item">Digital Transformation</span>
+      <span class="marquee-item">Core Banking</span>
+      <span class="marquee-item">NGO Digital Services</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-left reveal">
+      <div class="section-label">About the Firm</div>
+      <h2 class="section-title">Two capabilities. One roof. No handoffs.</h2>
+      <div class="about-stat-grid">
+        <div class="about-stat">
+          <div class="about-stat-num">3<span>+</span></div>
+          <div class="about-stat-label">Sectors in Indonesia</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">0</div>
+          <div class="about-stat-label">Junior Analysts</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">2</div>
+          <div class="about-stat-label">Core Service Lines</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">∞</div>
+          <div class="about-stat-label">Specialist Network</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right reveal">
+      <div class="about-body">
+        <p>FS & Partners is a boutique consulting firm founded by senior practitioners with deep experience across Indonesia's BSFI, fintech, and NGO sectors — the industries driving the country's digital economy.</p>
+        <p>We bring together two capabilities rarely found under one roof: the operational discipline to deliver complex projects on time and within scope, and the strategic clarity to define what should be built — and why.</p>
+        <p>Beyond our founding team, we work with a curated network of senior professionals across digital, product, and technology. When you engage us, we match the right specialists to your specific challenge — so you always get relevant expertise, not generalist advice.</p>
+        <p>We work with startups navigating their growth phase and SMEs ready to modernize — businesses that need real expertise, not theory.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="services-header">
+      <div class="reveal">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Two service lines. Rooted in delivery.</h2>
+      </div>
+      <p class="services-intro reveal">
+        Both lines are rooted in what we have actually delivered across banking, fintech, and digital transformation projects in Indonesia — not frameworks learned in a classroom.
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01 / Project Management & Delivery</div>
+        <h3 class="service-title">Turn ideas into shipped, working outcomes.</h3>
+        <p class="service-desc">For businesses that have ideas, roadmaps, or backlogs — but struggle to turn them into delivered, working outcomes. We bring structure, governance, and hands-on delivery oversight.</p>
+        <ul class="service-list">
+          <li>End-to-end project management from concept through to delivery</li>
+          <li>PMO setup: governance frameworks, standardized processes, resource planning</li>
+          <li>Agile & Scrum facilitation — sprint planning, backlog grooming, retrospectives</li>
+          <li>Waterfall and hybrid delivery for regulated or compliance-heavy environments</li>
+          <li>Project health checks and recovery for at-risk or stalled initiatives</li>
+          <li>Tooling setup: Jira, Confluence, MS Project, and collaboration platforms</li>
+        </ul>
+        <div class="service-exp">Experience: Digital banking · Core banking rollouts · Telco infrastructure</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">02 / Digital Strategy & Product Consulting</div>
+        <h3 class="service-title">Build the thinking before the building.</h3>
+        <p class="service-desc">For businesses that know they need to go digital — but are unsure where to start, what to prioritize, or how to make a compelling case to stakeholders.</p>
+        <ul class="service-list">
+          <li>Digital transformation roadmaps tailored to your business context and budget</li>
+          <li>Product strategy: concept development, market positioning, go-to-market planning</li>
+          <li>Business case and proposal development for digital initiatives</li>
+          <li>AI and GenAI application assessment — where it fits, where it doesn't</li>
+          <li>Customer experience and digital channel strategy</li>
+          <li>Technology vendor selection and evaluation support</li>
+        </ul>
+        <div class="service-exp">Experience: Fintech product · Digital banking · Insurance platforms · NGO LMS</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why" id="why">
+    <div class="why-inner">
+      <div class="why-sticky reveal">
+        <div class="section-label">Why Work With Us</div>
+        <h2 class="section-title">We are not a large consultancy with a bench of junior analysts.</h2>
+        <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.8; margin-top: 1rem; max-width: 36ch;">We are senior practitioners who show up and do the work — every engagement, every time.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <span class="why-icon">◈</span>
+          <div class="why-item-title">Practitioner-Led</div>
+          <p class="why-item-desc">Every engagement is handled directly by our senior team — no handoffs to junior analysts. You get the expertise you pay for.</p>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-icon">◉</span>
+          <div class="why-item-title">Industry-Grounded</div>
+          <p class="why-item-desc">We have worked inside financial services, fintech, and NGO sectors — among Indonesia's most demanding environments. We understand the constraints, compliance pressures, and pace.</p>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-icon">▣</span>
+          <div class="why-item-title">Execution-Focused</div>
+          <p class="why-item-desc">We don't just advise. We help you deliver. Our work produces project plans, working products, and digital strategies that can actually be implemented — not presentations that sit in a drawer.</p>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-icon">◫</span>
+          <div class="why-item-title">Right-Sized for SMEs</div>
+          <p class="why-item-desc">We work lean and without overhead. Engagements are scoped to what you actually need — not inflated to fill a retainer. Transparent, project-based pricing.</p>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-icon">⬡</span>
+          <div class="why-item-title">Specialist Network</div>
+          <p class="why-item-desc">Beyond our founding practitioners, we draw on a curated network of senior professionals across digital, product, and technology — matched to your specific engagement needs.</p>
+        </div>
+        <div class="why-item reveal">
+          <span class="why-icon">◎</span>
+          <div class="why-item-title">Local Context</div>
+          <p class="why-item-desc">We understand the Indonesian market: the regulatory landscape, the startup ecosystem, and the digital adoption curve your customers are navigating.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section class="clients" id="clients" style="padding: 5rem 4rem;">
+    <div class="clients-inner">
+      <div class="reveal">
+        <div class="section-label" style="color: rgba(255,255,255,0.7);">
+          <span style="background: rgba(255,255,255,0.7);"></span>
+          Who We Work With
+        </div>
+        <h2 class="clients-title">Two types of clients. One standard of work.</h2>
+      </div>
+      <div class="clients-cards">
+        <div class="client-card reveal">
+          <div class="client-card-tag">Startups · Series A+</div>
+          <div class="client-card-title">Fast-scaling startups</div>
+          <p class="client-card-desc">Scaling quickly and needing PMO structure, delivery discipline, or a clearer product and digital strategy to support your next funding round or growth phase.</p>
+        </div>
+        <div class="client-card reveal">
+          <div class="client-card-tag">Financial Services & Adjacent Sectors</div>
+          <div class="client-card-title">SMEs in transformation</div>
+          <p class="client-card-desc">Beginning or midway through a digital transformation — and needing experienced hands to guide the process without the enterprise price tag.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact" style="padding: 0;">
+    <div class="cta-left">
+      <div class="section-label">Let's Talk</div>
+      <h2 class="cta-title">If it involves digital, product, or delivery — <em>let's find out if we're the right fit.</em></h2>
+      <p class="cta-body">We keep our engagements small and focused, so every client gets the attention they deserve. We offer project-based and retainer engagements, scoped to what you actually need.</p>
+      <a href="mailto:info@fsp-consulting.id" class="btn-primary">Book a Free 30-Min Discovery Call</a>
+    </div>
+    <div class="cta-right">
+      <div class="cta-detail">
+        <div class="cta-detail-icon">✉</div>
+        <div>
+          <div class="cta-detail-label">Email</div>
+          <div class="cta-detail-value"><a href="mailto:info@fsp-consulting.id">info@fsp-consulting.id</a></div>
+        </div>
+      </div>
+      <div class="cta-detail">
+        <div class="cta-detail-icon">🌐</div>
+        <div>
+          <div class="cta-detail-label">Website</div>
+          <div class="cta-detail-value"><a href="https://fsp-consulting.id" target="_blank">fsp-consulting.id</a></div>
+        </div>
+      </div>
+      <div class="cta-detail">
+        <div class="cta-detail-icon">◎</div>
+        <div>
+          <div class="cta-detail-label">Location</div>
+          <div class="cta-detail-value">Jakarta, Indonesia</div>
+        </div>
+      </div>
+      <div class="cta-detail">
+        <div class="cta-detail-icon">📅</div>
+        <div>
+          <div class="cta-detail-label">Engagements</div>
+          <div class="cta-detail-value">Project-based & Retainer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">FS <span>&</span> Partners</div>
+    <div class="footer-tagline">Execution · Strategy · Growth</div>
+    <div class="footer-copy">© 2025 FS & Partners · Jakarta, Indonesia</div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Hero tagline word cycling
+    const words = document.querySelectorAll('.hero-tagline-word');
+    let current = 0;
+    setInterval(() => {
+      words[current].classList.remove('active');
+      current = (current + 1) % words.length;
+      words[current].classList.add('active');
+    }, 1800);
+
+    // Sticky nav shrink
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.padding = window.scrollY > 60 ? '1rem 4rem' : '1.5rem 4rem';
+    });
+  </script>
+</body>
+</html>
