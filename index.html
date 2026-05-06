@@ -12,12 +12,12 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink: #0a0f1e;
-      --paper: #f0f4fa;
-      --accent: #0043ce;
-      --accent-light: #d0e2ff;
-      --muted: #525c6e;
-      --line: #cdd5e0;
+      --ink: #1a2744;
+      --paper: #f4f6fb;
+      --accent: #1f7ab5;
+      --accent-light: #d6e8f5;
+      --muted: #4a5872;
+      --line: #c2d3e5;
       --serif: 'Playfair Display', Georgia, serif;
       --sans: 'DM Sans', sans-serif;
       --mono: 'DM Mono', monospace;
@@ -54,22 +54,19 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.5rem 4rem;
-      background: rgba(240, 244, 250, 0.88);
+      background: rgba(244, 246, 251, 0.90);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
       transition: padding 0.3s ease;
     }
 
     .nav-logo {
-      font-family: var(--serif);
-      font-weight: 900;
-      font-size: 1.2rem;
-      letter-spacing: -0.02em;
-      color: var(--ink);
       text-decoration: none;
+      display: flex;
+      align-items: center;
     }
 
-    .nav-logo span { color: var(--accent); }
+    .nav-logo svg { height: 36px; width: auto; }
 
     .nav-links {
       display: flex;
@@ -213,7 +210,7 @@
     .hero-right-bg {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 80% 20%, #0a2472 0%, var(--ink) 60%);
+      background: radial-gradient(ellipse at 80% 20%, #0f3460 0%, #1a2744 60%);
     }
 
     .hero-tagline {
@@ -434,7 +431,7 @@
     }
 
     .service-card:hover::before { width: 100%; }
-    .service-card:hover { background: rgba(0,67,206,0.06); }
+    .service-card:hover { background: rgba(31,122,181,0.06); }
 
     .service-num {
       font-family: var(--mono);
@@ -524,7 +521,7 @@
       transition: background 0.25s;
     }
 
-    .why-item:hover { background: rgba(0,67,206,0.04); }
+    .why-item:hover { background: rgba(31,122,181,0.04); }
 
     .why-icon {
       font-size: 1.4rem;
@@ -663,7 +660,7 @@
     .cta-detail-icon {
       width: 2.5rem;
       height: 2.5rem;
-      background: rgba(0,67,206,0.18);
+      background: rgba(31,122,181,0.18);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -702,14 +699,8 @@
       align-items: center;
     }
 
-    .footer-logo {
-      font-family: var(--serif);
-      font-weight: 900;
-      font-size: 1rem;
-      color: var(--ink);
-    }
-
-    .footer-logo span { color: var(--accent); }
+    .footer-logo { display: flex; align-items: center; }
+    .footer-logo svg { height: 28px; width: auto; }
 
     .footer-copy {
       font-family: var(--mono);
@@ -793,7 +784,26 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Forstra <span>Digital</span></a>
+    <a href="#" class="nav-logo">
+      <svg height="36" viewBox="0 0 220 44" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=DM+Sans:wght@300&display=swap');</style>
+        </defs>
+        <!-- Octagon mark, center 22,22, circumradius 20 -->
+        <polygon points="22,2 35.1,7.5 40,20.6 35.1,33.7 22,39.2 8.9,33.7 4,20.6 8.9,7.5" fill="#1a2744"/>
+        <polygon points="22,7 31.9,11.2 35.5,20.6 31.9,30 22,34.2 12.1,30 8.5,20.6 12.1,11.2" fill="none" stroke="rgba(31,122,181,0.55)" stroke-width="0.8"/>
+        <!-- F -->
+        <line x1="13" y1="13" x2="13" y2="30" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="13" y1="13" x2="21" y2="13" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="13" y1="21" x2="20" y2="21" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+        <!-- S -->
+        <path d="M25 30 Q33 30 33 25.5 Q33 21 25 21 Q17 21 17 16.5 Q17 12 25 12 Q31.5 12 32 14.5" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Wordmark -->
+        <text x="48" y="18" font-family="'Playfair Display',serif" font-weight="900" font-size="15" fill="#1a2744" letter-spacing="-0.3">Forstra</text>
+        <line x1="48" y1="21.5" x2="218" y2="21.5" stroke="#c2d3e5" stroke-width="0.6"/>
+        <text x="49.5" y="33" font-family="'DM Sans',sans-serif" font-weight="300" font-size="9" fill="#1f7ab5" letter-spacing="4">DIGITAL</text>
+      </svg>
+    </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
@@ -866,20 +876,20 @@
       <h2 class="section-title">Two capabilities. One roof. No handoffs.</h2>
       <div class="about-stat-grid">
         <div class="about-stat">
-          <div class="about-stat-num">3<span>+</span></div>
-          <div class="about-stat-label">Sectors in Indonesia</div>
+          <div class="about-stat-num">12<span>+</span></div>
+          <div class="about-stat-label">Years Avg. Experience</div>
         </div>
         <div class="about-stat">
-          <div class="about-stat-num">0</div>
-          <div class="about-stat-label">Junior Analysts</div>
+          <div class="about-stat-num">100<span>%</span></div>
+          <div class="about-stat-label">Senior-Only Delivery</div>
         </div>
         <div class="about-stat">
-          <div class="about-stat-num">2</div>
-          <div class="about-stat-label">Core Service Lines</div>
+          <div class="about-stat-num">3</div>
+          <div class="about-stat-label">Core Sectors Served</div>
         </div>
         <div class="about-stat">
-          <div class="about-stat-num">∞</div>
-          <div class="about-stat-label">Specialist Network</div>
+          <div class="about-stat-num">2<span>×</span></div>
+          <div class="about-stat-label">Service Lines, One Roof</div>
         </div>
       </div>
     </div>
@@ -1046,7 +1056,19 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">Forstra <span>Digital</span></div>
+    <div class="footer-logo">
+      <svg height="28" viewBox="0 0 220 44" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="22,2 35.1,7.5 40,20.6 35.1,33.7 22,39.2 8.9,33.7 4,20.6 8.9,7.5" fill="#1a2744"/>
+        <polygon points="22,7 31.9,11.2 35.5,20.6 31.9,30 22,34.2 12.1,30 8.5,20.6 12.1,11.2" fill="none" stroke="rgba(31,122,181,0.55)" stroke-width="0.8"/>
+        <line x1="13" y1="13" x2="13" y2="30" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="13" y1="13" x2="21" y2="13" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="13" y1="21" x2="20" y2="21" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M25 30 Q33 30 33 25.5 Q33 21 25 21 Q17 21 17 16.5 Q17 12 25 12 Q31.5 12 32 14.5" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="48" y="18" font-family="'Playfair Display',serif" font-weight="900" font-size="15" fill="#1a2744" letter-spacing="-0.3">Forstra</text>
+        <line x1="48" y1="21.5" x2="218" y2="21.5" stroke="#c2d3e5" stroke-width="0.6"/>
+        <text x="49.5" y="33" font-family="'DM Sans',sans-serif" font-weight="300" font-size="9" fill="#1f7ab5" letter-spacing="4">DIGITAL</text>
+      </svg>
+    </div>
     <div class="footer-tagline">Execution · Strategy · Growth</div>
     <div class="footer-copy">© 2025 Forstra Digital · Jakarta, Indonesia</div>
   </footer>
